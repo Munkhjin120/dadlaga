@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="mn.cinema.controller.BookingHistoryController">
+    <padding>
+        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+    </padding>
+
+    <Label styleClass="section-title" text="Миний захиалгын түүх" />
+
+    <TableView fx:id="bookingTable" VBox.vgrow="ALWAYS" prefHeight="380.0">
+        <columns>
+            <TableColumn fx:id="eventColumn" text="Кино / Тоглолт" prefWidth="260.0" />
+            <TableColumn fx:id="seatColumn" text="Суудал" prefWidth="90.0" />
+            <TableColumn fx:id="dateColumn" text="Захиалсан огноо" prefWidth="160.0" />
+            <TableColumn fx:id="statusColumn" text="Төлөв" prefWidth="120.0" />
+        </columns>
+    </TableView>
+
+    <Button fx:id="cancelButton" onAction="#handleCancelBooking" styleClass="danger-button" text="Захиалга цуцлах" />
+</VBox>

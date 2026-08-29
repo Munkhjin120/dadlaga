@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="mn.cinema.controller.AdminController">
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <!-- ================= EVENTS TAB ================= -->
+        <Tab text="Кино / Тоглолт">
+            <HBox spacing="14.0">
+                <padding>
+                    <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                </padding>
+
+                <TableView fx:id="eventTable" HBox.hgrow="ALWAYS" prefHeight="500.0">
+                    <columns>
+                        <TableColumn fx:id="evTitleCol" text="Нэр" prefWidth="180.0" />
+                        <TableColumn fx:id="evTypeCol" text="Төрөл" prefWidth="80.0" />
+                        <TableColumn fx:id="evDateCol" text="Огноо" prefWidth="90.0" />
+                        <TableColumn fx:id="evTimeCol" text="Цаг" prefWidth="60.0" />
+                        <TableColumn fx:id="evHallCol" text="Танхим" prefWidth="120.0" />
+                        <TableColumn fx:id="evPriceCol" text="Үнэ" prefWidth="80.0" />
+                    </columns>
+                </TableView>
+
+                <VBox spacing="8.0" prefWidth="300.0">
+                    <Label text="Нэр" />
+                    <TextField fx:id="evTitleField" />
+                    <Label text="Тайлбар" />
+                    <TextArea fx:id="evDescField" prefHeight="70.0" wrapText="true" />
+                    <Label text="Төрөл" />
+                    <ComboBox fx:id="evTypeCombo" maxWidth="Infinity" />
+                    <Label text="Огноо" />
+                    <DatePicker fx:id="evDatePicker" maxWidth="Infinity" />
+                    <Label text="Цаг (HH:mm)" />
+                    <TextField fx:id="evTimeField" promptText="18:30" />
+                    <Label text="Үнэ (₮)" />
+                    <TextField fx:id="evPriceField" promptText="15000" />
+                    <Label text="Танхим" />
+                    <ComboBox fx:id="evHallCombo" maxWidth="Infinity" />
+                    <Label fx:id="evErrorLabel" styleClass="error-label" wrapText="true" />
+
+                    <HBox spacing="8.0">
+                        <Button onAction="#handleAddEvent" styleClass="primary-button" text="Нэмэх" />
+                        <Button onAction="#handleUpdateEvent" text="Засах" />
+                        <Button onAction="#handleDeleteEvent" styleClass="danger-button" text="Устгах" />
+                    </HBox>
+                    <Button onAction="#handleClearEventForm" text="Формыг цэвэрлэх" />
+                </VBox>
+            </HBox>
+        </Tab>
+
+        <!-- ================= HALLS TAB ================= -->
+        <Tab text="Танхим">
+            <HBox spacing="14.0">
+                <padding>
+                    <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                </padding>
+
+                <TableView fx:id="hallTable" HBox.hgrow="ALWAYS" prefHeight="500.0">
+                    <columns>
+                        <TableColumn fx:id="hallNameCol" text="Нэр" prefWidth="200.0" />
+                        <TableColumn fx:id="hallRowsCol" text="Мөр" prefWidth="80.0" />
+                        <TableColumn fx:id="hallColsCol" text="Багана" prefWidth="80.0" />
+                        <TableColumn fx:id="hallSeatCountCol" text="Нийт суудал" prefWidth="110.0" />
+                    </columns>
+                </TableView>
+
+                <VBox spacing="8.0" prefWidth="280.0">
+                    <Label text="Танхимын нэр" />
+                    <TextField fx:id="hallNameField" />
+                    <Label text="Мөрийн тоо (A, B, C...)" />
+                    <TextField fx:id="hallRowsField" promptText="8" />
+                    <Label text="Баганы тоо (мөр тус бүрт)" />
+                    <TextField fx:id="hallColsField" promptText="10" />
+                    <Label fx:id="hallErrorLabel" styleClass="error-label" wrapText="true" />
+
+                    <HBox spacing="8.0">
+                        <Button onAction="#handleAddHall" styleClass="primary-button" text="Нэмэх" />
+                        <Button onAction="#handleUpdateHall" text="Засах" />
+                        <Button onAction="#handleDeleteHall" styleClass="danger-button" text="Устгах" />
+                    </HBox>
+                    <Button onAction="#handleClearHallForm" text="Формыг цэвэрлэх" />
+                </VBox>
+            </HBox>
+        </Tab>
+
+        <!-- ================= BOOKINGS TAB ================= -->
+        <Tab text="Захиалгууд">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                </padding>
+                <HBox spacing="8.0">
+                    <TextField fx:id="bookingSearchField" promptText="Хэрэглэгч эсвэл кино/тоглолтын нэрээр хайх" HBox.hgrow="ALWAYS" />
+                    <Button onAction="#handleSearchBookings" text="Хайх" />
+                </HBox>
+                <TableView fx:id="bookingTable" VBox.vgrow="ALWAYS" prefHeight="440.0">
+                    <columns>
+                        <TableColumn fx:id="bkUserCol" text="Хэрэглэгч" prefWidth="140.0" />
+                        <TableColumn fx:id="bkEventCol" text="Кино / Тоглолт" prefWidth="220.0" />
+                        <TableColumn fx:id="bkSeatCol" text="Суудал" prefWidth="80.0" />
+                        <TableColumn fx:id="bkDateCol" text="Захиалсан огноо" prefWidth="160.0" />
+                        <TableColumn fx:id="bkStatusCol" text="Төлөв" prefWidth="120.0" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- ================= USERS TAB ================= -->
+        <Tab text="Хэрэглэгчид">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                </padding>
+                <TableView fx:id="userTable" VBox.vgrow="ALWAYS" prefHeight="480.0">
+                    <columns>
+                        <TableColumn fx:id="usernameCol" text="Хэрэглэгчийн нэр" prefWidth="240.0" />
+                        <TableColumn fx:id="roleCol" text="Эрх" prefWidth="140.0" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

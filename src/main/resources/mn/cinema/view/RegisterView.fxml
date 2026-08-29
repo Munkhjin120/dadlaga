@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="14.0" styleClass="root-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="mn.cinema.controller.RegisterController">
+    <padding>
+        <Insets bottom="40.0" left="50.0" right="50.0" top="40.0" />
+    </padding>
+
+    <Label styleClass="title-label" text="Шинэ хэрэглэгч бүртгүүлэх" wrapText="true" />
+
+    <VBox spacing="6.0">
+        <Label text="Хэрэглэгчийн нэр" />
+        <TextField fx:id="usernameField" promptText="Хэрэглэгчийн нэр" />
+    </VBox>
+
+    <VBox spacing="6.0">
+        <Label text="Нууц үг" />
+        <PasswordField fx:id="passwordField" promptText="Нууц үг" />
+    </VBox>
+
+    <VBox spacing="6.0">
+        <Label text="Нууц үг давтах" />
+        <PasswordField fx:id="confirmPasswordField" promptText="Нууц үг давтах" onAction="#handleRegister" />
+    </VBox>
+
+    <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" />
+
+    <Button defaultButton="true" maxWidth="Infinity" onAction="#handleRegister" styleClass="primary-button" text="Бүртгүүлэх" />
+
+    <HBox alignment="CENTER" spacing="4.0">
+        <Label text="Бүртгэлтэй юу?" />
+        <Hyperlink fx:id="loginLink" onAction="#handleGoToLogin" text="Нэвтрэх" />
+    </HBox>
+</VBox>
