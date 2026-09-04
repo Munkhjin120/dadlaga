@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="mn.cinema.controller.SeatSelectionController">
+    <padding>
+        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+    </padding>
+
+    <Label fx:id="eventTitleLabel" styleClass="section-title" />
+    <Label fx:id="eventInfoLabel" wrapText="true" />
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" prefHeight="360.0">
+        <GridPane fx:id="seatGrid" alignment="CENTER" hgap="8.0" vgap="8.0">
+            <padding>
+                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+            </padding>
+        </GridPane>
+    </ScrollPane>
+
+    <HBox spacing="20.0">
+        <HBox spacing="6.0" alignment="CENTER_LEFT">
+            <Label styleClass="legend-swatch,seat-free" text="  " />
+            <Label text="Сул суудал" />
+        </HBox>
+        <HBox spacing="6.0" alignment="CENTER_LEFT">
+            <Label styleClass="legend-swatch,seat-booked" text="  " />
+            <Label text="Захиалагдсан" />
+        </HBox>
+        <HBox spacing="6.0" alignment="CENTER_LEFT">
+            <Label styleClass="legend-swatch,seat-selected-swatch" text="  " />
+            <Label text="Сонгосон" />
+        </HBox>
+    </HBox>
+
+    <Label fx:id="selectedSeatLabel" text="Сонгосон суудал: -" wrapText="true" />
+
+    <Button fx:id="confirmButton" onAction="#handleConfirmBooking" styleClass="primary-button" text="Тасалбар захиалах" disable="true" />
+    <VBox fx:id="legendBox" />
+</VBox>
