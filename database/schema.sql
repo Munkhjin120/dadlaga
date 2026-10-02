@@ -1,6 +1,4 @@
--- Cinema Booking App - MySQL схем
--- Программ анх удаа ажиллахад эдгээр хүснэгтүүд DBInitializer.java-с автоматаар үүснэ.
--- Гэхдээ хүсвэл гараар mysql клиентээр ажиллуулж болно.
+
 
 CREATE DATABASE IF NOT EXISTS cinema_booking CHARACTER SET utf8mb4;
 USE cinema_booking;
@@ -53,4 +51,4 @@ CREATE TABLE IF NOT EXISTS bookings (
     CONSTRAINT fk_booking_seat FOREIGN KEY (seat_id) REFERENCES seats(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Анхны admin: username=admin, password=admin123 (SHA-256 + salt-аар шифрлэгдэнэ)
+-- Анхны admin: username=admin, password=admin123 (SHA-256 hash ба salt ашиглана)

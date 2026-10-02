@@ -2,7 +2,7 @@ package mn.cinema.util;
 
 import mn.cinema.model.User;
 
-/** Одоо нэвтэрсэн хэрэглэгчийг агуулах singleton класс. */
+/** Одоо нэвтэрсэн хэрэглэгчийн төлөвийг хадгална. */
 public class SessionManager {
     private static User currentUser;
 

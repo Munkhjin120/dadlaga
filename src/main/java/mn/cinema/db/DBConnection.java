@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * MySQL өгөгдлийн сантай холбогдох цэгийн класс.
- * Тохиргоог classpath дээрх /db.properties файлаас уншина.
+ * MySQL өгөгдлийн сантай холбогдоход ашиглана.
+ * Тохиргоог classpath дахь /db.properties файлаас уншина.
  */
 public class DBConnection {
 

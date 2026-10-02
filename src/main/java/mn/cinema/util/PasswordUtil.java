@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-/** Нууц үгийг SHA-256 + давсалсан (salt) байдлаар шифрлэх туслах класс. */
+/** Нууц үгийн salt үүсгэж, SHA-256 hash шалгана. */
 public class PasswordUtil {
 
     public static String generateSalt() {
